@@ -2,6 +2,8 @@ package org.example.shoppingcart;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class ShoppingCartTest {
     @Test
     void shouldBeAbleToCreateShoppingCart()
@@ -10,6 +12,6 @@ public class ShoppingCartTest {
         ShoppingCart shoppingCart=new ShoppingCart();
 
         // assert
-        assetTrue(shoppingCart instanceof ShoppingCart);
+        assertTrue(shoppingCart instanceof ShoppingCart);
     }
 }
