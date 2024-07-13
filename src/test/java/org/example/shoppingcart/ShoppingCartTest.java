@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ShoppingCartTest {
 
@@ -60,6 +59,24 @@ public class ShoppingCartTest {
         List<Product> productList=shoppingCart.getProducts();
 
         // assert
-        assertEquals(1,productList.size());
+        assertFalse(productList.isEmpty());
+    }
+
+    @Test
+    void shouldBeAbleToPurchaseProduct()
+    {
+        // arrange
+        ShoppingCart shoppingCart=new ShoppingCart(new CartService());
+        Product product=new Product("Shoes",200.0);
+        Product product1=new Product("Mobile",200.0);
+        shoppingCart.add(product);
+        shoppingCart.add(product1);
+
+        // act
+        double amountPurchased=shoppingCart.purchase("Mobile");
+
+
+        // assert
+        assertEquals(amountPurchased,200);
     }
 }

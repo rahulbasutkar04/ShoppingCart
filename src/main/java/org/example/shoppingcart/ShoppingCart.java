@@ -22,4 +22,9 @@ public class ShoppingCart {
     public List<Product> getProducts() {
         return cartService.getProduct();
     }
-}
+
+    public double  purchase(String productName) {
+           return cartService.purchaseProduct(productName);
+    }
+    }
+

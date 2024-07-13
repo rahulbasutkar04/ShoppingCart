@@ -16,4 +16,12 @@ public class Product {
                 ", price=" + price +
                 '}';
     }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
 }

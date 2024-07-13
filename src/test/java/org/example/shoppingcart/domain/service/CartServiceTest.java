@@ -18,16 +18,34 @@ public class CartServiceTest {
 
     @Test
     public void shouldBeAbleToAddProductToCart() {
-        // Arrange
+        // arrange
         Product product = new Product("Test Product", 10.0); // Example product
 
-        // Act
+        // act
         boolean isAdded = cartService.add(product);
 
-        // Assert
+        // assert
         Assertions.assertTrue(isAdded);
         List<Product> productsInCart = cartService.getProduct();
         Assertions.assertEquals(1, productsInCart.size());
         Assertions.assertEquals(product, productsInCart.get(0));
     }
+    @Test
+    public void shouldBeAbleToPurchaseProduct() {
+        // arrange
+        Product product1 = new Product("Product 1", 15.0);
+        Product product2 = new Product("Product 2", 20.0);
+        cartService.add(product1);
+        cartService.add(product2);
+
+        // act
+        double amount1 = cartService.purchaseProduct("Product 1");
+        double amount2 = cartService.purchaseProduct("Product 2");
+
+        // assert
+        Assertions.assertEquals(15.0, amount1);
+        Assertions.assertEquals(20.0, amount2);
+    }
+
+
 }
