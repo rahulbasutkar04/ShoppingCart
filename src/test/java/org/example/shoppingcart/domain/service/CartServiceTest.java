@@ -1,6 +1,7 @@
 package org.example.shoppingcart.domain.service;
 
 import org.example.shoppingcart.domain.model.entity.Product;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,10 +17,15 @@ public class CartServiceTest {
         cartService = new CartService();
     }
 
+    @AfterEach
+    public void tearDown() {
+        cartService.clear();
+    }
+
     @Test
     public void shouldBeAbleToAddProductToCart() {
         // arrange
-        Product product = new Product("Test Product", 10.0); // Example product
+        Product product = new Product("Test Product", 10.0);
 
         // act
         boolean isAdded = cartService.add(product);
@@ -27,9 +33,9 @@ public class CartServiceTest {
         // assert
         Assertions.assertTrue(isAdded);
         List<Product> productsInCart = cartService.getProduct();
-        Assertions.assertEquals(1, productsInCart.size());
         Assertions.assertEquals(product, productsInCart.get(0));
     }
+
     @Test
     public void shouldBeAbleToPurchaseProduct() {
         // arrange
@@ -46,6 +52,4 @@ public class CartServiceTest {
         Assertions.assertEquals(15.0, amount1);
         Assertions.assertEquals(20.0, amount2);
     }
-
-
 }

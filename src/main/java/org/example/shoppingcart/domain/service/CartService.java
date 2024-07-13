@@ -31,4 +31,9 @@ public class CartService {
         }
         return -1;
     }
+
+    public  void  clear()
+    {
+        productList.clear();
+    }
 }

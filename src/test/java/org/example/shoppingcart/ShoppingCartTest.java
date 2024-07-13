@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ShoppingCartTest {
 
+
     @Test
     void shouldBeAbleToCreateShoppingCart()
     {
@@ -18,6 +19,8 @@ public class ShoppingCartTest {
 
         // assert
         assertTrue(shoppingCart instanceof ShoppingCart);
+
+
     }
 
     @Test
