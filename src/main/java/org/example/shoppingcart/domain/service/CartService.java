@@ -1,0 +1,22 @@
+package org.example.shoppingcart.domain.service;
+
+import org.example.shoppingcart.domain.model.entity.Product;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class CartService {
+     List<Product> productList =new ArrayList<>();
+
+    public  boolean add(Product product) {
+        productList.add(product);
+
+        return productList.size()!=0;
+    }
+
+    public List<Product> getProduct() {
+        return productList;
+    }
+
+
+}
